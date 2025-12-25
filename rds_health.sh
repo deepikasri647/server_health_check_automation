@@ -1,6 +1,6 @@
 #!/bin/bash
 REPORT_FILE="rds_health.txt"
-RDS_INSTANCE="prod-mypropertyqr"
+RDS_INSTANCE="rds-instance"
 
 echo "================ Daily RDS Health Report =================" > $REPORT_FILE
 
@@ -213,4 +213,5 @@ fi
     echo "Last Backup Time         : $LAST_BACKUP" >> $REPORT_FILE
     echo "Today's Backup Taken    : $TODAY_STATUS" >> $REPORT_FILE
   fi
+
 
