@@ -1,7 +1,7 @@
 #!/bin/bash
 # ==================== CONFIG ====================
 REPORT_FILE="eks_health_cloudwatch.txt"
-NAMESPACE="mypropertyqr-prod"
+NAMESPACE="eks-namespace"
 INGRESS_NS="ingress-prod-nginx"
 
 # ==================== HEADER ====================
@@ -13,16 +13,16 @@ OVERALL_STATUS="HEALTHY ✅"
 
 # ==================== INSTANCE TO NODE MAPPING ====================
 declare -A INSTANCE_TO_NODE
-INSTANCE_TO_NODE["i-020fad329526da094"]="ip-192-31-1-157.ap-south-1.compute.internal"
-INSTANCE_TO_NODE["i-09fc5f02262715519"]="ip-192-31-0-122.ap-south-1.compute.internal"
-INSTANCE_TO_NODE["i-05967c54024aab918"]="ip-192-31-2-116.ap-south-1.compute.internal"
+INSTANCE_TO_NODE["ec2-instance-id-01"]="ec2-instance-01"
+INSTANCE_TO_NODE["ec2-instance-id-02"]="ec2-instance-02"
+INSTANCE_TO_NODE["ec2-instance-id-03"]="ec2-instance-03"
 
 # ==================== GET KUBECTL METRICS ====================
 # Get node metrics once and store
 KUBECTL_METRICS=$(kubectl top nodes --no-headers 2>/dev/null)
 
 # ==================== EKS NODES ====================
-INSTANCES=("i-020fad329526da094" "i-09fc5f02262715519" "i-05967c54024aab918")
+INSTANCES=("ec2-instance-id-01" "ec2-instance-id-02" "ec2-instance-id-03")
 
 for INSTANCE_ID in "${INSTANCES[@]}"; do
     NODE_NAME="${INSTANCE_TO_NODE[$INSTANCE_ID]}"
@@ -214,4 +214,5 @@ echo "================ OVERALL STATUS =================" >> $REPORT_FILE
 echo "Status        : $OVERALL_STATUS" >> $REPORT_FILE
 
 echo "" >> $REPORT_FILE
+
 
