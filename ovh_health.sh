@@ -4,10 +4,7 @@
 OVH_IP=${OVH_IP}
 OVH_USER=${OVH_USER}
 OVH_PASS=${OVH_PASS}
-#SSH_KEY="$HOME/.ssh/id_ed25519"
 OUTPUT_FILE="ovh_health_report.txt"
-#SSH_KEY="$HOME/.ssh/id_ed25519"
-#SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 
 echo "================ OVH SERVER HEALTH REPORT =================" > $OUTPUT_FILE
 echo "Server       : ${OVH_IP}" >> $OUTPUT_FILE
@@ -82,3 +79,4 @@ ENDSSH
 echo "=================== REPORT END ====================" >> $OUTPUT_FILE
 
 echo "✅ OVH health check completed - Report saved to: $OUTPUT_FILE"
+
