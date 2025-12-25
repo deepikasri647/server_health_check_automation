@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPORT_FILE="github_repos.txt"
-GITHUB_USER="mypropertyqr"
+GITHUB_USER="deepikasri674"
 GITHUB_TOKEN=${GITHUB_TOKEN}
 #GITHUB_TOKEN="$TOKEN_GITHUB"
 
@@ -53,3 +53,4 @@ else
 fi
 
 echo "" >> "$REPORT_FILE"
+
